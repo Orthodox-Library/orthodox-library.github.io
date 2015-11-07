@@ -31,6 +31,8 @@ dir=//hp-pc/Users/USER/Google\ Drive/pubWeb/library\ of\ Orthodox\ fathers
 #dir=//hp-pc/Users/USER/Google\ Drive/pubWeb/school
 #return
 echo $link > $file
+echo "<script src=jquery213.js></script>">> $file
+echo "<script src=blog.js></script>">> $file
 echo "<link rel=stylesheet type=text/css href=blog.css>">> $file
 echo "<h1>Orthodox Christian Library</h1><hr>">> $file
 #start=`expr length "$dir"`
@@ -47,14 +49,15 @@ end="${#link}"
 	if [ -d $link ]
 	then
 		txtlink=${link:$start:$end}
-	echo "<h3><a href='"$base$link"'>$txtlink</a></h3>" >> $file
+	#echo "<h3><a href='"$base$link"'>$txtlink</a></h3>" >> $file
+	echo "<h3>$txtlink</h3>" >> $file
 	else
 		txtlink=${link:$start:$end} # maybe i should erase this
 		#finds the relative basename
 		txtlink=`basename $txtlink`
 		#eliminates the file extension
 		txtlink=`echo "$txtlink" | cut -d'.' -f1`
-	echo "<a href='"$base$link"'>$txtlink</a>""--><a href='"$baseonline$link"'>view</a>""<br>" >> $file
+	echo "<a href='"$base$link"'>$txtlink</a>""<span>--></span><a href='"$baseonline$link"'>view</a>""<br>" >> $file
 	fi
 done
 IFS=

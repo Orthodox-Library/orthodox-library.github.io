@@ -22,3 +22,12 @@ h3 a{
 	font-family: Calibri;
 	color: red
 }
+
+h3 {
+   /* background: #E6E6E6; */
+    text-align: left;
+	
+	font-family: "Verdana", Geneva, sans-serif;
+	font-family: Calibri;
+	color: red
+}
